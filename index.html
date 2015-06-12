@@ -1,0 +1,1840 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Filthadelphia</title>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+		<link rel="stylesheet" type="text/css" href="css/own_style.css">
+		<link rel="stylesheet" href="css/label.css" />
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/leaflet.awesome-markers.css">
+		<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+		<script src="js/leaflet-hash.js"></script>
+		<script src="js/label.js"></script>
+		<script src="js/Autolinker.min.js"></script>
+		<script src="js/leaflet.awesome-markers.js"></script>
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+
+	</head>
+	<body>
+		<div id="map"></div>
+		<script src="data/exp_GISSTREETSWasteBasketsBigBelly.js"></script>
+		<script src="data/exp_NeighborhoodsPhiladelphia.js"></script>
+		<script>
+		var map = L.map('map', {
+			zoomControl:true, maxZoom:19
+		}).fitBounds([[39.850651885,-75.2923795695],[40.1544936688,-74.9457978928]]);
+		var hash = new L.Hash(map);
+		var additional_attrib = 'created w. <a href="https://github.com/geolicious/qgis2leaf" target ="_blank">qgis2leaf</a> by <a href="http://www.geolicious.de" target ="_blank">Geolicious</a> & contributors<br>';
+		var feature_group = new L.featureGroup([]);
+		var raster_group = new L.LayerGroup([]);
+		var basemap_0 = L.tileLayer('http://a.tile.stamen.com/toner/{z}/{x}/{y}.png', { 
+			attribution: additional_attrib + 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data: &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>'
+		});	
+		basemap_0.addTo(map);	
+		var layerOrder=new Array();
+		function pop_NeighborhoodsPhiladelphia(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">NAME</th><td>' + Autolinker.link(String(feature.properties['NAME'])) + '</td></tr><tr><th scope="row">LISTNAME</th><td>' + Autolinker.link(String(feature.properties['LISTNAME'])) + '</td></tr><tr><th scope="row">MAPNAME</th><td>' + Autolinker.link(String(feature.properties['MAPNAME'])) + '</td></tr><tr><th scope="row">Shape_Leng</th><td>' + Autolinker.link(String(feature.properties['Shape_Leng'])) + '</td></tr><tr><th scope="row">Shape_Area</th><td>' + Autolinker.link(String(feature.properties['Shape_Area'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		function doStyleNeighborhoodsPhiladelphia(feature) {
+			switch (feature.properties.NAME) {
+				case 'ACADEMY_GARDENS':
+					return {
+						weight: '1.3',
+						fillColor: '#e77467',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'AIRPORT':
+					return {
+						weight: '1.3',
+						fillColor: '#3c7cdc',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'ALLEGHENY_WEST':
+					return {
+						weight: '1.3',
+						fillColor: '#e5531a',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'ANDORRA':
+					return {
+						weight: '1.3',
+						fillColor: '#da971b',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'ASTON_WOODBRIDGE':
+					return {
+						weight: '1.3',
+						fillColor: '#cc4255',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'BARTRAM_VILLAGE':
+					return {
+						weight: '1.3',
+						fillColor: '#ea1f41',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'BELLA_VISTA':
+					return {
+						weight: '1.3',
+						fillColor: '#6150e7',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'BELMONT':
+					return {
+						weight: '1.3',
+						fillColor: '#495ed8',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'BREWERYTOWN':
+					return {
+						weight: '1.3',
+						fillColor: '#2e50ca',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'BRIDESBURG':
+					return {
+						weight: '1.3',
+						fillColor: '#5564e9',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'BURHOLME':
+					return {
+						weight: '1.3',
+						fillColor: '#59ebaf',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'BUSTLETON':
+					return {
+						weight: '1.3',
+						fillColor: '#3eaff0',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'BYBERRY':
+					return {
+						weight: '1.3',
+						fillColor: '#4e8bcd',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'CALLOWHILL':
+					return {
+						weight: '1.3',
+						fillColor: '#e13e3b',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'CARROLL_PARK':
+					return {
+						weight: '1.3',
+						fillColor: '#6cc8c4',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'CEDAR_PARK':
+					return {
+						weight: '1.3',
+						fillColor: '#245de2',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'CEDARBROOK':
+					return {
+						weight: '1.3',
+						fillColor: '#1a76e7',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'CENTER_CITY':
+					return {
+						weight: '1.3',
+						fillColor: '#42ef4b',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'CHESTNUT_HILL':
+					return {
+						weight: '1.3',
+						fillColor: '#9669d5',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'CHINATOWN':
+					return {
+						weight: '1.3',
+						fillColor: '#16d34c',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'CLEARVIEW':
+					return {
+						weight: '1.3',
+						fillColor: '#1dd673',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'COBBS_CREEK':
+					return {
+						weight: '1.3',
+						fillColor: '#1dd673',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'CRESCENTVILLE':
+					return {
+						weight: '1.3',
+						fillColor: '#c96ab8',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'CRESTMONT_FARMS':
+					return {
+						weight: '1.3',
+						fillColor: '#afe377',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'DEARNLEY_PARK':
+					return {
+						weight: '1.3',
+						fillColor: '#ca3e7b',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'DICKINSON_NARROWS':
+					return {
+						weight: '1.3',
+						fillColor: '#cf699e',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'DUNLAP':
+					return {
+						weight: '1.3',
+						fillColor: '#ce7486',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'EAST_FALLS':
+					return {
+						weight: '1.3',
+						fillColor: '#d83bd6',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'EAST_KENSINGTON':
+					return {
+						weight: '1.3',
+						fillColor: '#d46326',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'EAST_OAK_LANE':
+					return {
+						weight: '1.3',
+						fillColor: '#7ae69c',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'EAST_PARK':
+					return {
+						weight: '1.3',
+						fillColor: '#e8a789',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'EAST_PARKSIDE':
+					return {
+						weight: '1.3',
+						fillColor: '#b8d827',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'EAST_PASSYUNK':
+					return {
+						weight: '1.3',
+						fillColor: '#59d6c1',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'EAST_POPLAR':
+					return {
+						weight: '1.3',
+						fillColor: '#cc80db',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'EASTWICK':
+					return {
+						weight: '1.3',
+						fillColor: '#70d437',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'ELMWOOD':
+					return {
+						weight: '1.3',
+						fillColor: '#2a1ad7',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'FAIRHILL':
+					return {
+						weight: '1.3',
+						fillColor: '#8cf0cd',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'FAIRMOUNT':
+					return {
+						weight: '1.3',
+						fillColor: '#ce2775',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'FELTONVILLE':
+					return {
+						weight: '1.3',
+						fillColor: '#4ecd32',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'FERN_ROCK':
+					return {
+						weight: '1.3',
+						fillColor: '#811de4',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'FISHTOWN':
+					return {
+						weight: '1.3',
+						fillColor: '#87b5e0',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'FITLER_SQUARE':
+					return {
+						weight: '1.3',
+						fillColor: '#0dcb50',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'FOX_CHASE':
+					return {
+						weight: '1.3',
+						fillColor: '#0dcb50',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'FRANCISVILLE':
+					return {
+						weight: '1.3',
+						fillColor: '#6379da',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'FRANKFORD':
+					return {
+						weight: '1.3',
+						fillColor: '#23cd31',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'FRANKLIN_MILLS':
+					return {
+						weight: '1.3',
+						fillColor: '#58c84c',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'FRANKLINVILLE':
+					return {
+						weight: '1.3',
+						fillColor: '#d2d811',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'GARDEN_COURT':
+					return {
+						weight: '1.3',
+						fillColor: '#d2d811',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'GERMANTOWN_EAST':
+					return {
+						weight: '1.3',
+						fillColor: '#645ed8',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'GERMANTOWN_MORTON':
+					return {
+						weight: '1.3',
+						fillColor: '#bed07d',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'GERMANTOWN_PENN_KNOX':
+					return {
+						weight: '1.3',
+						fillColor: '#1ed33c',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'GERMANTOWN_SOUTHWEST':
+					return {
+						weight: '1.3',
+						fillColor: '#6b70f0',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'GERMANTOWN_WEST_CENT':
+					return {
+						weight: '1.3',
+						fillColor: '#84ec61',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'GERMANTOWN_WESTSIDE':
+					return {
+						weight: '1.3',
+						fillColor: '#eb2bdb',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'GERMANY_HILL':
+					return {
+						weight: '1.3',
+						fillColor: '#8452d5',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'GIRARD_ESTATES':
+					return {
+						weight: '1.3',
+						fillColor: '#1f62e8',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'GLENWOOD':
+					return {
+						weight: '1.3',
+						fillColor: '#82dd7c',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'GRADUATE_HOSPITAL':
+					return {
+						weight: '1.3',
+						fillColor: '#9eeb6b',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'GRAYS_FERRY':
+					return {
+						weight: '1.3',
+						fillColor: '#45bcee',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'GREENWICH':
+					return {
+						weight: '1.3',
+						fillColor: '#56ee79',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'HADDINGTON':
+					return {
+						weight: '1.3',
+						fillColor: '#7bcc30',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'HARROWGATE':
+					return {
+						weight: '1.3',
+						fillColor: '#ed5f2f',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'HARTRANFT':
+					return {
+						weight: '1.3',
+						fillColor: '#9fce32',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'HAVERFORD_NORTH':
+					return {
+						weight: '1.3',
+						fillColor: '#44a1cf',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'HAWTHORNE':
+					return {
+						weight: '1.3',
+						fillColor: '#5e10f0',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'HOLMESBURG':
+					return {
+						weight: '1.3',
+						fillColor: '#d7b132',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'HUNTING_PARK':
+					return {
+						weight: '1.3',
+						fillColor: '#6abfd6',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'INDUSTRIAL':
+					return {
+						weight: '1.3',
+						fillColor: '#cf7c9b',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'JUNIATA_PARK':
+					return {
+						weight: '1.3',
+						fillColor: '#d1dc7d',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'KINGSESSING':
+					return {
+						weight: '1.3',
+						fillColor: '#4cde36',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'LAWNDALE':
+					return {
+						weight: '1.3',
+						fillColor: '#b40de7',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'LEXINGTON_PARK':
+					return {
+						weight: '1.3',
+						fillColor: '#d31092',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'LOGAN':
+					return {
+						weight: '1.3',
+						fillColor: '#de5f61',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'LOGAN_SQUARE':
+					return {
+						weight: '1.3',
+						fillColor: '#70d04a',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'LOWER_MOYAMENSING':
+					return {
+						weight: '1.3',
+						fillColor: '#d246a8',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'LUDLOW':
+					return {
+						weight: '1.3',
+						fillColor: '#0dd5c5',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'MANAYUNK':
+					return {
+						weight: '1.3',
+						fillColor: '#e0e020',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'MANTUA':
+					return {
+						weight: '1.3',
+						fillColor: '#ee5262',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'MAYFAIR':
+					return {
+						weight: '1.3',
+						fillColor: '#138bed',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'MCGUIRE':
+					return {
+						weight: '1.3',
+						fillColor: '#a4e050',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'MECHANICSVILLE':
+					return {
+						weight: '1.3',
+						fillColor: '#9a84ef',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'MELROSE_PARK_GARDENS':
+					return {
+						weight: '1.3',
+						fillColor: '#7ee2c3',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'MILL_CREEK':
+					return {
+						weight: '1.3',
+						fillColor: '#ce8224',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'MILLBROOK':
+					return {
+						weight: '1.3',
+						fillColor: '#3fe4d1',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'MODENA':
+					return {
+						weight: '1.3',
+						fillColor: '#3fe4d1',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'MORRELL_PARK':
+					return {
+						weight: '1.3',
+						fillColor: '#e43fd1',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'MOUNT_AIRY_EAST':
+					return {
+						weight: '1.3',
+						fillColor: '#7b98cb',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'MOUNT_AIRY_WEST':
+					return {
+						weight: '1.3',
+						fillColor: '#70d46d',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'NAVY_YARD':
+					return {
+						weight: '1.3',
+						fillColor: '#afe714',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'NEWBOLD':
+					return {
+						weight: '1.3',
+						fillColor: '#da7a75',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'NICETOWN':
+					return {
+						weight: '1.3',
+						fillColor: '#b223d6',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'NORMANDY_VILLAGE':
+					return {
+						weight: '1.3',
+						fillColor: '#e848d0',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'NORTH_CENTRAL':
+					return {
+						weight: '1.3',
+						fillColor: '#c8af1e',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'NORTHEAST_AIRPORT':
+					return {
+						weight: '1.3',
+						fillColor: '#33d836',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'NORTHERN_LIBERTIES':
+					return {
+						weight: '1.3',
+						fillColor: '#33d836',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'NORTHWOOD':
+					return {
+						weight: '1.3',
+						fillColor: '#a73be9',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'OGONTZ':
+					return {
+						weight: '1.3',
+						fillColor: '#65e1e5',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'OLD_CITY':
+					return {
+						weight: '1.3',
+						fillColor: '#a022e4',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'OLD_KENSINGTON':
+					return {
+						weight: '1.3',
+						fillColor: '#7248d3',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'OLNEY':
+					return {
+						weight: '1.3',
+						fillColor: '#d3a461',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'OVERBROOK':
+					return {
+						weight: '1.3',
+						fillColor: '#ca843d',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'OXFORD_CIRCLE':
+					return {
+						weight: '1.3',
+						fillColor: '#d6a17e',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'PACKER_PARK':
+					return {
+						weight: '1.3',
+						fillColor: '#7ee4aa',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'PARKWOOD_MANOR':
+					return {
+						weight: '1.3',
+						fillColor: '#ed7360',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'PASCHALL':
+					return {
+						weight: '1.3',
+						fillColor: '#23e79c',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'PASSYUNK_SQUARE':
+					return {
+						weight: '1.3',
+						fillColor: '#d33aaf',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'PENNSPORT':
+					return {
+						weight: '1.3',
+						fillColor: '#24d7d4',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'PENNYPACK':
+					return {
+						weight: '1.3',
+						fillColor: '#24d7d4',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'PENNYPACK_PARK':
+					return {
+						weight: '1.3',
+						fillColor: '#b0d662',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'PENNYPACK_WOODS':
+					return {
+						weight: '1.3',
+						fillColor: '#d684dd',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'PENROSE':
+					return {
+						weight: '1.3',
+						fillColor: '#ec5029',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'POINT_BREEZE':
+					return {
+						weight: '1.3',
+						fillColor: '#efe78e',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'PORT_RICHMOND':
+					return {
+						weight: '1.3',
+						fillColor: '#55c2ce',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'POWELTON':
+					return {
+						weight: '1.3',
+						fillColor: '#d6eb5a',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'QUEEN_VILLAGE':
+					return {
+						weight: '1.3',
+						fillColor: '#6972ed',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'RHAWNHURST':
+					return {
+						weight: '1.3',
+						fillColor: '#54d514',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'RICHMOND':
+					return {
+						weight: '1.3',
+						fillColor: '#dcbe47',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'RITTENHOUSE':
+					return {
+						weight: '1.3',
+						fillColor: '#dcbe47',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'RIVERFRONT':
+					return {
+						weight: '1.3',
+						fillColor: '#4edee8',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'ROXBOROUGH':
+					return {
+						weight: '1.3',
+						fillColor: '#50d985',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'ROXBOROUGH_PARK':
+					return {
+						weight: '1.3',
+						fillColor: '#d9d54c',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'SHARSWOOD':
+					return {
+						weight: '1.3',
+						fillColor: '#e32863',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'SOCIETY_HILL':
+					return {
+						weight: '1.3',
+						fillColor: '#aa6ddf',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'SOMERTON':
+					return {
+						weight: '1.3',
+						fillColor: '#3615f0',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'SOUTHWEST_SCHUYLKILL':
+					return {
+						weight: '1.3',
+						fillColor: '#ca10cd',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'SPRING_GARDEN':
+					return {
+						weight: '1.3',
+						fillColor: '#e3ab28',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'SPRUCE_HILL':
+					return {
+						weight: '1.3',
+						fillColor: '#5ad39b',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'STADIUM_DISTRICT':
+					return {
+						weight: '1.3',
+						fillColor: '#5ad39b',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'STANTON':
+					return {
+						weight: '1.3',
+						fillColor: '#ce3388',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'STRAWBERRY_MANSION':
+					return {
+						weight: '1.3',
+						fillColor: '#7ce98b',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'SUMMERDALE':
+					return {
+						weight: '1.3',
+						fillColor: '#d57e6d',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'TACONY':
+					return {
+						weight: '1.3',
+						fillColor: '#6ab9ca',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'TIOGA':
+					return {
+						weight: '1.3',
+						fillColor: '#be6cde',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'TORRESDALE':
+					return {
+						weight: '1.3',
+						fillColor: '#9ce321',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'UNIVERSITY_CITY':
+					return {
+						weight: '1.3',
+						fillColor: '#1244dc',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'UPPER_KENSINGTON':
+					return {
+						weight: '1.3',
+						fillColor: '#38bfec',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'UPPER_ROXBOROUGH':
+					return {
+						weight: '1.3',
+						fillColor: '#da73bf',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'WALNUT_HILL':
+					return {
+						weight: '1.3',
+						fillColor: '#5a35d3',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'WASHINGTON_SQUARE':
+					return {
+						weight: '1.3',
+						fillColor: '#e9a672',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'WEST_KENSINGTON':
+					return {
+						weight: '1.3',
+						fillColor: '#ea8ec4',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'WEST_OAK_LANE':
+					return {
+						weight: '1.3',
+						fillColor: '#c1cd19',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'WEST_PARK':
+					return {
+						weight: '1.3',
+						fillColor: '#9b58ce',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'WEST_PARKSIDE':
+					return {
+						weight: '1.3',
+						fillColor: '#8133df',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'WEST_PASSYUNK':
+					return {
+						weight: '1.3',
+						fillColor: '#de7e83',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'WEST_POPLAR':
+					return {
+						weight: '1.3',
+						fillColor: '#f02e65',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'WEST_POWELTON':
+					return {
+						weight: '1.3',
+						fillColor: '#16f0be',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'WEST_TORRESDALE':
+					return {
+						weight: '1.3',
+						fillColor: '#42e4b9',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'WHITMAN':
+					return {
+						weight: '1.3',
+						fillColor: '#d863e9',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'WINCHESTER_PARK':
+					return {
+						weight: '1.3',
+						fillColor: '#1616c9',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'WISSAHICKON':
+					return {
+						weight: '1.3',
+						fillColor: '#81c4f0',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'WISSAHICKON_HILLS':
+					return {
+						weight: '1.3',
+						fillColor: '#96d863',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'WISSAHICKON_PARK':
+					return {
+						weight: '1.3',
+						fillColor: '#e63965',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'WISSINOMING':
+					return {
+						weight: '1.3',
+						fillColor: '#4b11e9',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'WISTER':
+					return {
+						weight: '1.3',
+						fillColor: '#d5266c',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'WOODLAND_TERRACE':
+					return {
+						weight: '1.3',
+						fillColor: '#4bdfc2',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'WYNNEFIELD':
+					return {
+						weight: '1.3',
+						fillColor: '#45ca5f',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'WYNNEFIELD_HEIGHTS':
+					return {
+						weight: '1.3',
+						fillColor: '#8fda34',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				case 'YORKTOWN':
+					return {
+						weight: '1.3',
+						fillColor: '#cab40f',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+				default:
+					return {
+						weight: '1.3',
+						fillColor: '#d34fda',
+						color: '#000000',
+						weight: '1',
+						dashArray: '',
+						opacity: '0.5',
+						fillOpacity: '0.5',
+					};
+					break;
+			}
+		}
+		var exp_NeighborhoodsPhiladelphiaJSON = new L.geoJson(exp_NeighborhoodsPhiladelphia,{
+			onEachFeature: pop_NeighborhoodsPhiladelphia,
+			style: doStyleNeighborhoodsPhiladelphia
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_NeighborhoodsPhiladelphiaJSON);
+		function pop_GISSTREETSWasteBasketsBigBelly(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">OBJECTID</th><td>' + Autolinker.link(String(feature.properties['OBJECTID'])) + '</td></tr><tr><th scope="row">SERIALNUM</th><td>' + Autolinker.link(String(feature.properties['SERIALNUM'])) + '</td></tr><tr><th scope="row">DESCRIPTIO</th><td>' + Autolinker.link(String(feature.properties['DESCRIPTIO'])) + '</td></tr><tr><th scope="row">RECYCLER</th><td>' + Autolinker.link(String(feature.properties['RECYCLER'])) + '</td></tr><tr><th scope="row">GlobalID</th><td>' + Autolinker.link(String(feature.properties['GlobalID'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+		
+		var trashMarker = L.AwesomeMarkers.icon({
+			prefix: 'fa',
+			icon: 'trash-o',
+			markerColor: 'green'
+		})
+
+		var exp_GISSTREETSWasteBasketsBigBellyJSON = new L.geoJson(exp_GISSTREETSWasteBasketsBigBelly,{
+			onEachFeature: pop_GISSTREETSWasteBasketsBigBelly,
+			pointToLayer: function (feature, latlng) {  
+				return L.marker(latlng, {icon: trashMarker
+				})
+			}
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_GISSTREETSWasteBasketsBigBellyJSON);
+
+		feature_group.addTo(map);
+		var title = new L.Control();
+		title.onAdd = function (map) {
+			this._div = L.DomUtil.create('div', 'info'); // create a div with a class "info"
+			this.update();
+			return this._div;
+		};
+		title.update = function () {
+			this._div.innerHTML = '<h2>Where to dump</h2>your trash'
+		};
+		title.addTo(map);
+	var baseMaps = {
+		'Stamen Toner': basemap_0
+	};
+		L.control.layers(baseMaps,{"GISSTREETSWasteBasketsBigBelly": exp_GISSTREETSWasteBasketsBigBellyJSON,"NeighborhoodsPhiladelphia": exp_NeighborhoodsPhiladelphiaJSON},{collapsed:false}).addTo(map);
+		L.control.scale({options: {position: 'bottomleft',maxWidth: 100,metric: true,imperial: false,updateWhenIdle: false}}).addTo(map);
+	</script>
+</body>
+</html>
