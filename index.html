@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Filthadelphia</title>
+		<title>Philly Big Bellies</title>
 		<meta charset="utf-8" />
 		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
 		<link rel="stylesheet" type="text/css" href="css/own_style.css">
@@ -15,16 +15,16 @@
 		<script src="js/Autolinker.min.js"></script>
 		<script src="js/leaflet.awesome-markers.js"></script>
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-
 	</head>
 	<body>
 		<div id="map"></div>
+		<script src="data/exp_recyclebelly.js"></script>
 		<script src="data/exp_GISSTREETSWasteBasketsBigBelly.js"></script>
 		<script src="data/exp_NeighborhoodsPhiladelphia.js"></script>
 		<script>
 		var map = L.map('map', {
 			zoomControl:true, maxZoom:19
-		}).fitBounds([[39.850651885,-75.2923795695],[40.1544936688,-74.9457978928]]);
+		}).fitBounds([[39.8893899666,-75.2531417827],[40.0579801943,-75.0066131218]]);
 		var hash = new L.Hash(map);
 		var additional_attrib = 'created w. <a href="https://github.com/geolicious/qgis2leaf" target ="_blank">qgis2leaf</a> by <a href="http://www.geolicious.de" target ="_blank">Geolicious</a> & contributors<br>';
 		var feature_group = new L.featureGroup([]);
@@ -35,7 +35,7 @@
 		basemap_0.addTo(map);	
 		var layerOrder=new Array();
 		function pop_NeighborhoodsPhiladelphia(feature, layer) {					
-			var popupContent = '<table><tr><th scope="row">NAME</th><td>' + Autolinker.link(String(feature.properties['NAME'])) + '</td></tr><tr><th scope="row">LISTNAME</th><td>' + Autolinker.link(String(feature.properties['LISTNAME'])) + '</td></tr><tr><th scope="row">MAPNAME</th><td>' + Autolinker.link(String(feature.properties['MAPNAME'])) + '</td></tr><tr><th scope="row">Shape_Leng</th><td>' + Autolinker.link(String(feature.properties['Shape_Leng'])) + '</td></tr><tr><th scope="row">Shape_Area</th><td>' + Autolinker.link(String(feature.properties['Shape_Area'])) + '</td></tr></table>';
+			var popupContent = '<table><tr><th scope="row">Neighborhood</th><td>' + Autolinker.link(String(feature.properties['MAPNAME'])) + '</td></tr></table>';
 			layer.bindPopup(popupContent);
 		}
 
@@ -44,7 +44,7 @@
 				case 'ACADEMY_GARDENS':
 					return {
 						weight: '1.3',
-						fillColor: '#e77467',
+						fillColor: '#54cbe3',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -55,7 +55,7 @@
 				case 'AIRPORT':
 					return {
 						weight: '1.3',
-						fillColor: '#3c7cdc',
+						fillColor: '#d0247d',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -66,7 +66,7 @@
 				case 'ALLEGHENY_WEST':
 					return {
 						weight: '1.3',
-						fillColor: '#e5531a',
+						fillColor: '#c81c0c',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -77,7 +77,7 @@
 				case 'ANDORRA':
 					return {
 						weight: '1.3',
-						fillColor: '#da971b',
+						fillColor: '#33e371',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -88,7 +88,7 @@
 				case 'ASTON_WOODBRIDGE':
 					return {
 						weight: '1.3',
-						fillColor: '#cc4255',
+						fillColor: '#6b8fd8',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -99,7 +99,7 @@
 				case 'BARTRAM_VILLAGE':
 					return {
 						weight: '1.3',
-						fillColor: '#ea1f41',
+						fillColor: '#cd7468',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -110,7 +110,7 @@
 				case 'BELLA_VISTA':
 					return {
 						weight: '1.3',
-						fillColor: '#6150e7',
+						fillColor: '#e3682f',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -121,7 +121,7 @@
 				case 'BELMONT':
 					return {
 						weight: '1.3',
-						fillColor: '#495ed8',
+						fillColor: '#9579e0',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -132,7 +132,7 @@
 				case 'BREWERYTOWN':
 					return {
 						weight: '1.3',
-						fillColor: '#2e50ca',
+						fillColor: '#16e42e',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -143,7 +143,7 @@
 				case 'BRIDESBURG':
 					return {
 						weight: '1.3',
-						fillColor: '#5564e9',
+						fillColor: '#22ca55',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -154,7 +154,7 @@
 				case 'BURHOLME':
 					return {
 						weight: '1.3',
-						fillColor: '#59ebaf',
+						fillColor: '#d2b555',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -165,7 +165,7 @@
 				case 'BUSTLETON':
 					return {
 						weight: '1.3',
-						fillColor: '#3eaff0',
+						fillColor: '#e5ef4c',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -176,7 +176,7 @@
 				case 'BYBERRY':
 					return {
 						weight: '1.3',
-						fillColor: '#4e8bcd',
+						fillColor: '#9647d2',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -187,7 +187,7 @@
 				case 'CALLOWHILL':
 					return {
 						weight: '1.3',
-						fillColor: '#e13e3b',
+						fillColor: '#b0cb39',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -198,7 +198,7 @@
 				case 'CARROLL_PARK':
 					return {
 						weight: '1.3',
-						fillColor: '#6cc8c4',
+						fillColor: '#5667ec',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -209,7 +209,7 @@
 				case 'CEDAR_PARK':
 					return {
 						weight: '1.3',
-						fillColor: '#245de2',
+						fillColor: '#d54161',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -220,7 +220,7 @@
 				case 'CEDARBROOK':
 					return {
 						weight: '1.3',
-						fillColor: '#1a76e7',
+						fillColor: '#d9698a',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -231,7 +231,7 @@
 				case 'CENTER_CITY':
 					return {
 						weight: '1.3',
-						fillColor: '#42ef4b',
+						fillColor: '#eacc8a',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -242,7 +242,7 @@
 				case 'CHESTNUT_HILL':
 					return {
 						weight: '1.3',
-						fillColor: '#9669d5',
+						fillColor: '#6fdc2f',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -253,7 +253,7 @@
 				case 'CHINATOWN':
 					return {
 						weight: '1.3',
-						fillColor: '#16d34c',
+						fillColor: '#55ca70',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -264,7 +264,7 @@
 				case 'CLEARVIEW':
 					return {
 						weight: '1.3',
-						fillColor: '#1dd673',
+						fillColor: '#947ac8',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -275,7 +275,7 @@
 				case 'COBBS_CREEK':
 					return {
 						weight: '1.3',
-						fillColor: '#1dd673',
+						fillColor: '#947ac8',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -286,7 +286,7 @@
 				case 'CRESCENTVILLE':
 					return {
 						weight: '1.3',
-						fillColor: '#c96ab8',
+						fillColor: '#d15d6d',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -297,7 +297,7 @@
 				case 'CRESTMONT_FARMS':
 					return {
 						weight: '1.3',
-						fillColor: '#afe377',
+						fillColor: '#748ee3',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -308,7 +308,7 @@
 				case 'DEARNLEY_PARK':
 					return {
 						weight: '1.3',
-						fillColor: '#ca3e7b',
+						fillColor: '#d87ed5',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -319,7 +319,7 @@
 				case 'DICKINSON_NARROWS':
 					return {
 						weight: '1.3',
-						fillColor: '#cf699e',
+						fillColor: '#d84d1a',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -330,7 +330,7 @@
 				case 'DUNLAP':
 					return {
 						weight: '1.3',
-						fillColor: '#ce7486',
+						fillColor: '#7a69c9',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -341,7 +341,7 @@
 				case 'EAST_FALLS':
 					return {
 						weight: '1.3',
-						fillColor: '#d83bd6',
+						fillColor: '#e86f57',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -352,7 +352,7 @@
 				case 'EAST_KENSINGTON':
 					return {
 						weight: '1.3',
-						fillColor: '#d46326',
+						fillColor: '#de3889',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -363,7 +363,7 @@
 				case 'EAST_OAK_LANE':
 					return {
 						weight: '1.3',
-						fillColor: '#7ae69c',
+						fillColor: '#722de8',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -374,7 +374,7 @@
 				case 'EAST_PARK':
 					return {
 						weight: '1.3',
-						fillColor: '#e8a789',
+						fillColor: '#b146ea',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -385,7 +385,7 @@
 				case 'EAST_PARKSIDE':
 					return {
 						weight: '1.3',
-						fillColor: '#b8d827',
+						fillColor: '#e21b64',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -396,7 +396,7 @@
 				case 'EAST_PASSYUNK':
 					return {
 						weight: '1.3',
-						fillColor: '#59d6c1',
+						fillColor: '#e0a717',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -407,7 +407,7 @@
 				case 'EAST_POPLAR':
 					return {
 						weight: '1.3',
-						fillColor: '#cc80db',
+						fillColor: '#e968be',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -418,7 +418,7 @@
 				case 'EASTWICK':
 					return {
 						weight: '1.3',
-						fillColor: '#70d437',
+						fillColor: '#504bdd',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -429,7 +429,7 @@
 				case 'ELMWOOD':
 					return {
 						weight: '1.3',
-						fillColor: '#2a1ad7',
+						fillColor: '#57ee2c',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -440,7 +440,7 @@
 				case 'FAIRHILL':
 					return {
 						weight: '1.3',
-						fillColor: '#8cf0cd',
+						fillColor: '#26c1c9',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -451,7 +451,7 @@
 				case 'FAIRMOUNT':
 					return {
 						weight: '1.3',
-						fillColor: '#ce2775',
+						fillColor: '#48a8ce',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -462,7 +462,7 @@
 				case 'FELTONVILLE':
 					return {
 						weight: '1.3',
-						fillColor: '#4ecd32',
+						fillColor: '#b240ce',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -473,7 +473,7 @@
 				case 'FERN_ROCK':
 					return {
 						weight: '1.3',
-						fillColor: '#811de4',
+						fillColor: '#d28a17',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -484,7 +484,7 @@
 				case 'FISHTOWN':
 					return {
 						weight: '1.3',
-						fillColor: '#87b5e0',
+						fillColor: '#9577dd',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -495,7 +495,7 @@
 				case 'FITLER_SQUARE':
 					return {
 						weight: '1.3',
-						fillColor: '#0dcb50',
+						fillColor: '#2a5aca',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -506,7 +506,7 @@
 				case 'FOX_CHASE':
 					return {
 						weight: '1.3',
-						fillColor: '#0dcb50',
+						fillColor: '#2a5aca',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -517,7 +517,7 @@
 				case 'FRANCISVILLE':
 					return {
 						weight: '1.3',
-						fillColor: '#6379da',
+						fillColor: '#99d06c',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -528,7 +528,7 @@
 				case 'FRANKFORD':
 					return {
 						weight: '1.3',
-						fillColor: '#23cd31',
+						fillColor: '#ea74d5',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -539,7 +539,7 @@
 				case 'FRANKLIN_MILLS':
 					return {
 						weight: '1.3',
-						fillColor: '#58c84c',
+						fillColor: '#d6e739',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -550,7 +550,7 @@
 				case 'FRANKLINVILLE':
 					return {
 						weight: '1.3',
-						fillColor: '#d2d811',
+						fillColor: '#ab17ea',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -561,7 +561,7 @@
 				case 'GARDEN_COURT':
 					return {
 						weight: '1.3',
-						fillColor: '#d2d811',
+						fillColor: '#ab17ea',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -572,7 +572,7 @@
 				case 'GERMANTOWN_EAST':
 					return {
 						weight: '1.3',
-						fillColor: '#645ed8',
+						fillColor: '#17c1d4',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -583,7 +583,7 @@
 				case 'GERMANTOWN_MORTON':
 					return {
 						weight: '1.3',
-						fillColor: '#bed07d',
+						fillColor: '#b846e1',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -594,7 +594,7 @@
 				case 'GERMANTOWN_PENN_KNOX':
 					return {
 						weight: '1.3',
-						fillColor: '#1ed33c',
+						fillColor: '#8b45cd',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -605,7 +605,7 @@
 				case 'GERMANTOWN_SOUTHWEST':
 					return {
 						weight: '1.3',
-						fillColor: '#6b70f0',
+						fillColor: '#4de79a',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -616,7 +616,7 @@
 				case 'GERMANTOWN_WEST_CENT':
 					return {
 						weight: '1.3',
-						fillColor: '#84ec61',
+						fillColor: '#ca67db',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -627,7 +627,7 @@
 				case 'GERMANTOWN_WESTSIDE':
 					return {
 						weight: '1.3',
-						fillColor: '#eb2bdb',
+						fillColor: '#8888e7',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -638,7 +638,7 @@
 				case 'GERMANY_HILL':
 					return {
 						weight: '1.3',
-						fillColor: '#8452d5',
+						fillColor: '#c1ec76',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -649,7 +649,7 @@
 				case 'GIRARD_ESTATES':
 					return {
 						weight: '1.3',
-						fillColor: '#1f62e8',
+						fillColor: '#8f59c8',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -660,7 +660,7 @@
 				case 'GLENWOOD':
 					return {
 						weight: '1.3',
-						fillColor: '#82dd7c',
+						fillColor: '#9cec45',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -671,7 +671,7 @@
 				case 'GRADUATE_HOSPITAL':
 					return {
 						weight: '1.3',
-						fillColor: '#9eeb6b',
+						fillColor: '#ee6eb5',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -682,7 +682,7 @@
 				case 'GRAYS_FERRY':
 					return {
 						weight: '1.3',
-						fillColor: '#45bcee',
+						fillColor: '#368cd6',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -693,7 +693,7 @@
 				case 'GREENWICH':
 					return {
 						weight: '1.3',
-						fillColor: '#56ee79',
+						fillColor: '#7fd474',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -704,7 +704,7 @@
 				case 'HADDINGTON':
 					return {
 						weight: '1.3',
-						fillColor: '#7bcc30',
+						fillColor: '#3d1ef0',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -715,7 +715,7 @@
 				case 'HARROWGATE':
 					return {
 						weight: '1.3',
-						fillColor: '#ed5f2f',
+						fillColor: '#ca8d61',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -726,7 +726,7 @@
 				case 'HARTRANFT':
 					return {
 						weight: '1.3',
-						fillColor: '#9fce32',
+						fillColor: '#0f8be9',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -737,7 +737,7 @@
 				case 'HAVERFORD_NORTH':
 					return {
 						weight: '1.3',
-						fillColor: '#44a1cf',
+						fillColor: '#36da7b',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -748,7 +748,7 @@
 				case 'HAWTHORNE':
 					return {
 						weight: '1.3',
-						fillColor: '#5e10f0',
+						fillColor: '#5e95d0',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -759,7 +759,7 @@
 				case 'HOLMESBURG':
 					return {
 						weight: '1.3',
-						fillColor: '#d7b132',
+						fillColor: '#72e2cc',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -770,7 +770,7 @@
 				case 'HUNTING_PARK':
 					return {
 						weight: '1.3',
-						fillColor: '#6abfd6',
+						fillColor: '#4ad531',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -781,7 +781,7 @@
 				case 'INDUSTRIAL':
 					return {
 						weight: '1.3',
-						fillColor: '#cf7c9b',
+						fillColor: '#e2e187',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -792,7 +792,7 @@
 				case 'JUNIATA_PARK':
 					return {
 						weight: '1.3',
-						fillColor: '#d1dc7d',
+						fillColor: '#6fddd8',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -803,7 +803,7 @@
 				case 'KINGSESSING':
 					return {
 						weight: '1.3',
-						fillColor: '#4cde36',
+						fillColor: '#2565cb',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -814,7 +814,7 @@
 				case 'LAWNDALE':
 					return {
 						weight: '1.3',
-						fillColor: '#b40de7',
+						fillColor: '#5ceba8',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -825,7 +825,7 @@
 				case 'LEXINGTON_PARK':
 					return {
 						weight: '1.3',
-						fillColor: '#d31092',
+						fillColor: '#eeb28d',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -836,7 +836,7 @@
 				case 'LOGAN':
 					return {
 						weight: '1.3',
-						fillColor: '#de5f61',
+						fillColor: '#19d03b',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -847,7 +847,7 @@
 				case 'LOGAN_SQUARE':
 					return {
 						weight: '1.3',
-						fillColor: '#70d04a',
+						fillColor: '#adec8e',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -858,7 +858,7 @@
 				case 'LOWER_MOYAMENSING':
 					return {
 						weight: '1.3',
-						fillColor: '#d246a8',
+						fillColor: '#4787d5',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -869,7 +869,7 @@
 				case 'LUDLOW':
 					return {
 						weight: '1.3',
-						fillColor: '#0dd5c5',
+						fillColor: '#d9636e',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -880,7 +880,7 @@
 				case 'MANAYUNK':
 					return {
 						weight: '1.3',
-						fillColor: '#e0e020',
+						fillColor: '#249ad0',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -891,7 +891,7 @@
 				case 'MANTUA':
 					return {
 						weight: '1.3',
-						fillColor: '#ee5262',
+						fillColor: '#8ce7af',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -902,7 +902,7 @@
 				case 'MAYFAIR':
 					return {
 						weight: '1.3',
-						fillColor: '#138bed',
+						fillColor: '#dfd77b',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -913,7 +913,7 @@
 				case 'MCGUIRE':
 					return {
 						weight: '1.3',
-						fillColor: '#a4e050',
+						fillColor: '#ce2cdc',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -924,7 +924,7 @@
 				case 'MECHANICSVILLE':
 					return {
 						weight: '1.3',
-						fillColor: '#9a84ef',
+						fillColor: '#71d7c6',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -935,7 +935,7 @@
 				case 'MELROSE_PARK_GARDENS':
 					return {
 						weight: '1.3',
-						fillColor: '#7ee2c3',
+						fillColor: '#6ce836',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -946,7 +946,7 @@
 				case 'MILL_CREEK':
 					return {
 						weight: '1.3',
-						fillColor: '#ce8224',
+						fillColor: '#e7618e',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -957,7 +957,7 @@
 				case 'MILLBROOK':
 					return {
 						weight: '1.3',
-						fillColor: '#3fe4d1',
+						fillColor: '#34ee50',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -968,7 +968,7 @@
 				case 'MODENA':
 					return {
 						weight: '1.3',
-						fillColor: '#3fe4d1',
+						fillColor: '#34ee50',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -979,7 +979,7 @@
 				case 'MORRELL_PARK':
 					return {
 						weight: '1.3',
-						fillColor: '#e43fd1',
+						fillColor: '#2aedbd',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -990,7 +990,7 @@
 				case 'MOUNT_AIRY_EAST':
 					return {
 						weight: '1.3',
-						fillColor: '#7b98cb',
+						fillColor: '#32f02b',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1001,7 +1001,7 @@
 				case 'MOUNT_AIRY_WEST':
 					return {
 						weight: '1.3',
-						fillColor: '#70d46d',
+						fillColor: '#afeb37',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1012,7 +1012,7 @@
 				case 'NAVY_YARD':
 					return {
 						weight: '1.3',
-						fillColor: '#afe714',
+						fillColor: '#da4c55',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1023,7 +1023,7 @@
 				case 'NEWBOLD':
 					return {
 						weight: '1.3',
-						fillColor: '#da7a75',
+						fillColor: '#3fdf6a',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1034,7 +1034,7 @@
 				case 'NICETOWN':
 					return {
 						weight: '1.3',
-						fillColor: '#b223d6',
+						fillColor: '#3dc9ec',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1045,7 +1045,7 @@
 				case 'NORMANDY_VILLAGE':
 					return {
 						weight: '1.3',
-						fillColor: '#e848d0',
+						fillColor: '#f0918f',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1056,7 +1056,7 @@
 				case 'NORTH_CENTRAL':
 					return {
 						weight: '1.3',
-						fillColor: '#c8af1e',
+						fillColor: '#b9e54a',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1067,7 +1067,7 @@
 				case 'NORTHEAST_AIRPORT':
 					return {
 						weight: '1.3',
-						fillColor: '#33d836',
+						fillColor: '#cacd65',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1078,7 +1078,7 @@
 				case 'NORTHERN_LIBERTIES':
 					return {
 						weight: '1.3',
-						fillColor: '#33d836',
+						fillColor: '#cacd65',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1089,7 +1089,7 @@
 				case 'NORTHWOOD':
 					return {
 						weight: '1.3',
-						fillColor: '#a73be9',
+						fillColor: '#cc5371',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1100,7 +1100,7 @@
 				case 'OGONTZ':
 					return {
 						weight: '1.3',
-						fillColor: '#65e1e5',
+						fillColor: '#83e77c',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1111,7 +1111,7 @@
 				case 'OLD_CITY':
 					return {
 						weight: '1.3',
-						fillColor: '#a022e4',
+						fillColor: '#8bedcb',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1122,7 +1122,7 @@
 				case 'OLD_KENSINGTON':
 					return {
 						weight: '1.3',
-						fillColor: '#7248d3',
+						fillColor: '#8f60cf',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1133,7 +1133,7 @@
 				case 'OLNEY':
 					return {
 						weight: '1.3',
-						fillColor: '#d3a461',
+						fillColor: '#d8c022',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1144,7 +1144,7 @@
 				case 'OVERBROOK':
 					return {
 						weight: '1.3',
-						fillColor: '#ca843d',
+						fillColor: '#72dd76',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1155,7 +1155,7 @@
 				case 'OXFORD_CIRCLE':
 					return {
 						weight: '1.3',
-						fillColor: '#d6a17e',
+						fillColor: '#5ab8ea',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1166,7 +1166,7 @@
 				case 'PACKER_PARK':
 					return {
 						weight: '1.3',
-						fillColor: '#7ee4aa',
+						fillColor: '#dd927f',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1177,7 +1177,7 @@
 				case 'PARKWOOD_MANOR':
 					return {
 						weight: '1.3',
-						fillColor: '#ed7360',
+						fillColor: '#19c0d9',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1188,7 +1188,7 @@
 				case 'PASCHALL':
 					return {
 						weight: '1.3',
-						fillColor: '#23e79c',
+						fillColor: '#4799d0',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1199,7 +1199,7 @@
 				case 'PASSYUNK_SQUARE':
 					return {
 						weight: '1.3',
-						fillColor: '#d33aaf',
+						fillColor: '#2ce27e',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1210,7 +1210,7 @@
 				case 'PENNSPORT':
 					return {
 						weight: '1.3',
-						fillColor: '#24d7d4',
+						fillColor: '#dd954c',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1221,7 +1221,7 @@
 				case 'PENNYPACK':
 					return {
 						weight: '1.3',
-						fillColor: '#24d7d4',
+						fillColor: '#dd954c',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1232,7 +1232,7 @@
 				case 'PENNYPACK_PARK':
 					return {
 						weight: '1.3',
-						fillColor: '#b0d662',
+						fillColor: '#67d9db',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1243,7 +1243,7 @@
 				case 'PENNYPACK_WOODS':
 					return {
 						weight: '1.3',
-						fillColor: '#d684dd',
+						fillColor: '#2dc98b',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1254,7 +1254,7 @@
 				case 'PENROSE':
 					return {
 						weight: '1.3',
-						fillColor: '#ec5029',
+						fillColor: '#d27f36',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1265,7 +1265,7 @@
 				case 'POINT_BREEZE':
 					return {
 						weight: '1.3',
-						fillColor: '#efe78e',
+						fillColor: '#75e1d3',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1276,7 +1276,7 @@
 				case 'PORT_RICHMOND':
 					return {
 						weight: '1.3',
-						fillColor: '#55c2ce',
+						fillColor: '#77ce57',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1287,7 +1287,7 @@
 				case 'POWELTON':
 					return {
 						weight: '1.3',
-						fillColor: '#d6eb5a',
+						fillColor: '#924ae8',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1298,7 +1298,7 @@
 				case 'QUEEN_VILLAGE':
 					return {
 						weight: '1.3',
-						fillColor: '#6972ed',
+						fillColor: '#edce53',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1309,7 +1309,7 @@
 				case 'RHAWNHURST':
 					return {
 						weight: '1.3',
-						fillColor: '#54d514',
+						fillColor: '#d85e74',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1320,7 +1320,7 @@
 				case 'RICHMOND':
 					return {
 						weight: '1.3',
-						fillColor: '#dcbe47',
+						fillColor: '#efa780',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1331,7 +1331,7 @@
 				case 'RITTENHOUSE':
 					return {
 						weight: '1.3',
-						fillColor: '#dcbe47',
+						fillColor: '#efa780',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1342,7 +1342,7 @@
 				case 'RIVERFRONT':
 					return {
 						weight: '1.3',
-						fillColor: '#4edee8',
+						fillColor: '#d4ca0d',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1353,7 +1353,7 @@
 				case 'ROXBOROUGH':
 					return {
 						weight: '1.3',
-						fillColor: '#50d985',
+						fillColor: '#cab54d',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1364,7 +1364,7 @@
 				case 'ROXBOROUGH_PARK':
 					return {
 						weight: '1.3',
-						fillColor: '#d9d54c',
+						fillColor: '#70d359',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1375,7 +1375,7 @@
 				case 'SHARSWOOD':
 					return {
 						weight: '1.3',
-						fillColor: '#e32863',
+						fillColor: '#ea4587',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1386,7 +1386,7 @@
 				case 'SOCIETY_HILL':
 					return {
 						weight: '1.3',
-						fillColor: '#aa6ddf',
+						fillColor: '#e866d5',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1397,7 +1397,7 @@
 				case 'SOMERTON':
 					return {
 						weight: '1.3',
-						fillColor: '#3615f0',
+						fillColor: '#d81892',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1408,7 +1408,7 @@
 				case 'SOUTHWEST_SCHUYLKILL':
 					return {
 						weight: '1.3',
-						fillColor: '#ca10cd',
+						fillColor: '#e944de',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1419,7 +1419,7 @@
 				case 'SPRING_GARDEN':
 					return {
 						weight: '1.3',
-						fillColor: '#e3ab28',
+						fillColor: '#6681ca',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1430,7 +1430,7 @@
 				case 'SPRUCE_HILL':
 					return {
 						weight: '1.3',
-						fillColor: '#5ad39b',
+						fillColor: '#5256cf',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1441,7 +1441,7 @@
 				case 'STADIUM_DISTRICT':
 					return {
 						weight: '1.3',
-						fillColor: '#5ad39b',
+						fillColor: '#5256cf',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1452,7 +1452,7 @@
 				case 'STANTON':
 					return {
 						weight: '1.3',
-						fillColor: '#ce3388',
+						fillColor: '#efad55',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1463,7 +1463,7 @@
 				case 'STRAWBERRY_MANSION':
 					return {
 						weight: '1.3',
-						fillColor: '#7ce98b',
+						fillColor: '#da645e',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1474,7 +1474,7 @@
 				case 'SUMMERDALE':
 					return {
 						weight: '1.3',
-						fillColor: '#d57e6d',
+						fillColor: '#b5df1a',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1485,7 +1485,7 @@
 				case 'TACONY':
 					return {
 						weight: '1.3',
-						fillColor: '#6ab9ca',
+						fillColor: '#d43cae',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1496,7 +1496,7 @@
 				case 'TIOGA':
 					return {
 						weight: '1.3',
-						fillColor: '#be6cde',
+						fillColor: '#65e6bd',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1507,7 +1507,7 @@
 				case 'TORRESDALE':
 					return {
 						weight: '1.3',
-						fillColor: '#9ce321',
+						fillColor: '#7183e7',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1518,7 +1518,7 @@
 				case 'UNIVERSITY_CITY':
 					return {
 						weight: '1.3',
-						fillColor: '#1244dc',
+						fillColor: '#e45b32',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1529,7 +1529,7 @@
 				case 'UPPER_KENSINGTON':
 					return {
 						weight: '1.3',
-						fillColor: '#38bfec',
+						fillColor: '#3153ea',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1540,7 +1540,7 @@
 				case 'UPPER_ROXBOROUGH':
 					return {
 						weight: '1.3',
-						fillColor: '#da73bf',
+						fillColor: '#4338d6',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1551,7 +1551,7 @@
 				case 'WALNUT_HILL':
 					return {
 						weight: '1.3',
-						fillColor: '#5a35d3',
+						fillColor: '#877cd6',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1562,7 +1562,7 @@
 				case 'WASHINGTON_SQUARE':
 					return {
 						weight: '1.3',
-						fillColor: '#e9a672',
+						fillColor: '#e9ab64',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1573,7 +1573,7 @@
 				case 'WEST_KENSINGTON':
 					return {
 						weight: '1.3',
-						fillColor: '#ea8ec4',
+						fillColor: '#39d290',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1584,7 +1584,7 @@
 				case 'WEST_OAK_LANE':
 					return {
 						weight: '1.3',
-						fillColor: '#c1cd19',
+						fillColor: '#cae47c',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1595,7 +1595,7 @@
 				case 'WEST_PARK':
 					return {
 						weight: '1.3',
-						fillColor: '#9b58ce',
+						fillColor: '#a7da78',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1606,7 +1606,7 @@
 				case 'WEST_PARKSIDE':
 					return {
 						weight: '1.3',
-						fillColor: '#8133df',
+						fillColor: '#e1b35c',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1617,7 +1617,7 @@
 				case 'WEST_PASSYUNK':
 					return {
 						weight: '1.3',
-						fillColor: '#de7e83',
+						fillColor: '#cc2c31',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1628,7 +1628,7 @@
 				case 'WEST_POPLAR':
 					return {
 						weight: '1.3',
-						fillColor: '#f02e65',
+						fillColor: '#d579d9',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1639,7 +1639,7 @@
 				case 'WEST_POWELTON':
 					return {
 						weight: '1.3',
-						fillColor: '#16f0be',
+						fillColor: '#d957ea',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1650,7 +1650,7 @@
 				case 'WEST_TORRESDALE':
 					return {
 						weight: '1.3',
-						fillColor: '#42e4b9',
+						fillColor: '#1423cd',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1661,7 +1661,7 @@
 				case 'WHITMAN':
 					return {
 						weight: '1.3',
-						fillColor: '#d863e9',
+						fillColor: '#22a0ca',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1672,7 +1672,7 @@
 				case 'WINCHESTER_PARK':
 					return {
 						weight: '1.3',
-						fillColor: '#1616c9',
+						fillColor: '#e57ac5',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1683,7 +1683,7 @@
 				case 'WISSAHICKON':
 					return {
 						weight: '1.3',
-						fillColor: '#81c4f0',
+						fillColor: '#e50e6f',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1694,7 +1694,7 @@
 				case 'WISSAHICKON_HILLS':
 					return {
 						weight: '1.3',
-						fillColor: '#96d863',
+						fillColor: '#e94de9',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1705,7 +1705,7 @@
 				case 'WISSAHICKON_PARK':
 					return {
 						weight: '1.3',
-						fillColor: '#e63965',
+						fillColor: '#0de3ce',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1716,7 +1716,7 @@
 				case 'WISSINOMING':
 					return {
 						weight: '1.3',
-						fillColor: '#4b11e9',
+						fillColor: '#4d27d5',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1727,7 +1727,7 @@
 				case 'WISTER':
 					return {
 						weight: '1.3',
-						fillColor: '#d5266c',
+						fillColor: '#60e860',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1738,7 +1738,7 @@
 				case 'WOODLAND_TERRACE':
 					return {
 						weight: '1.3',
-						fillColor: '#4bdfc2',
+						fillColor: '#3d78ca',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1749,7 +1749,7 @@
 				case 'WYNNEFIELD':
 					return {
 						weight: '1.3',
-						fillColor: '#45ca5f',
+						fillColor: '#ef4aad',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1760,7 +1760,7 @@
 				case 'WYNNEFIELD_HEIGHTS':
 					return {
 						weight: '1.3',
-						fillColor: '#8fda34',
+						fillColor: '#daeb66',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1771,7 +1771,7 @@
 				case 'YORKTOWN':
 					return {
 						weight: '1.3',
-						fillColor: '#cab40f',
+						fillColor: '#3bd0ce',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1782,7 +1782,7 @@
 				default:
 					return {
 						weight: '1.3',
-						fillColor: '#d34fda',
+						fillColor: '#1fda2f',
 						color: '#000000',
 						weight: '1',
 						dashArray: '',
@@ -1802,11 +1802,11 @@
 			var popupContent = '<table><tr><th scope="row">OBJECTID</th><td>' + Autolinker.link(String(feature.properties['OBJECTID'])) + '</td></tr><tr><th scope="row">SERIALNUM</th><td>' + Autolinker.link(String(feature.properties['SERIALNUM'])) + '</td></tr><tr><th scope="row">DESCRIPTIO</th><td>' + Autolinker.link(String(feature.properties['DESCRIPTIO'])) + '</td></tr><tr><th scope="row">RECYCLER</th><td>' + Autolinker.link(String(feature.properties['RECYCLER'])) + '</td></tr><tr><th scope="row">GlobalID</th><td>' + Autolinker.link(String(feature.properties['GlobalID'])) + '</td></tr></table>';
 			layer.bindPopup(popupContent);
 		}
-		
+
 		var trashMarker = L.AwesomeMarkers.icon({
 			prefix: 'fa',
 			icon: 'trash-o',
-			markerColor: 'green'
+			markerColor: 'blue'
 		})
 
 		var exp_GISSTREETSWasteBasketsBigBellyJSON = new L.geoJson(exp_GISSTREETSWasteBasketsBigBelly,{
@@ -1818,6 +1818,28 @@
 		});
 		//add comment sign to hide this layer on the map in the initial view.
 		feature_group.addLayer(exp_GISSTREETSWasteBasketsBigBellyJSON);
+		function pop_recyclebelly(feature, layer) {					
+			var popupContent = '<table><tr><th scope="row">OBJECTID</th><td>' + Autolinker.link(String(feature.properties['OBJECTID'])) + '</td></tr><tr><th scope="row">SERIALNUM</th><td>' + Autolinker.link(String(feature.properties['SERIALNUM'])) + '</td></tr><tr><th scope="row">DESCRIPTIO</th><td>' + Autolinker.link(String(feature.properties['DESCRIPTIO'])) + '</td></tr><tr><th scope="row">RECYCLER</th><td>' + Autolinker.link(String(feature.properties['RECYCLER'])) + '</td></tr><tr><th scope="row">GlobalID</th><td>' + Autolinker.link(String(feature.properties['GlobalID'])) + '</td></tr></table>';
+			layer.bindPopup(popupContent);
+		}
+
+		var recycleMarker = L.AwesomeMarkers.icon({
+			prefix: 'fa',
+			icon: 'recycle',
+			markerColor: 'green',
+			iconColor: 'white',
+			spin: 'true'
+		})
+
+		var exp_recyclebellyJSON = new L.geoJson(exp_recyclebelly,{
+			onEachFeature: pop_recyclebelly,
+			pointToLayer: function (feature, latlng) {  
+				return L.marker(latlng, {icon: recycleMarker
+					})
+			}
+		});
+		//add comment sign to hide this layer on the map in the initial view.
+		feature_group.addLayer(exp_recyclebellyJSON);
 
 		feature_group.addTo(map);
 		var title = new L.Control();
@@ -1827,13 +1849,20 @@
 			return this._div;
 		};
 		title.update = function () {
-			this._div.innerHTML = '<h2>Where to dump</h2>your trash'
+			this._div.innerHTML = '<h1>Trash and Recycling Bins</h1>Need to toss that Starbucks?'
 		};
 		title.addTo(map);
+		var legend = L.control({position: 'bottomright'});
+		legend.onAdd = function (map) {
+			var div = L.DomUtil.create('div', 'info legend');
+			div.innerHTML = "<h3>Legend</h3><table></table>";
+    		return div;
+		};
+		legend.addTo(map);
 	var baseMaps = {
-		'Stamen Toner': basemap_0
+		'Toggle Layers Below': basemap_0
 	};
-		L.control.layers(baseMaps,{"GISSTREETSWasteBasketsBigBelly": exp_GISSTREETSWasteBasketsBigBellyJSON,"NeighborhoodsPhiladelphia": exp_NeighborhoodsPhiladelphiaJSON},{collapsed:false}).addTo(map);
+		L.control.layers(baseMaps,{"Recycling Bins": exp_recyclebellyJSON,"Big Belly Trash Bins": exp_GISSTREETSWasteBasketsBigBellyJSON,"Neighborhoods": exp_NeighborhoodsPhiladelphiaJSON},{collapsed:false}).addTo(map);
 		L.control.scale({options: {position: 'bottomleft',maxWidth: 100,metric: true,imperial: false,updateWhenIdle: false}}).addTo(map);
 	</script>
 </body>
